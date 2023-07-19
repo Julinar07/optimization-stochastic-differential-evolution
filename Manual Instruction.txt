@@ -1,0 +1,40 @@
+------------------------------------------------------------------------------------- SOURCE CODE GUIDE -------------------------------------------------------------------------------------
+
+Hi guys... This is a manual instruction to using the MATLAB source code for our project.
+I'm separate the code into several file MATLAB, but don't worry as long as the code are grouping into one folder it will be okay.
+
+The MATLAB file as follows:
+1. DeterministicSIR.m 
+   This is a function that contain deterministic SIR model (There are no random numbers).
+2. StochasticSIR.m
+   This is a function that contain stochastic SIR model (Using random number on the model).
+3. EstimationDeterministic.m
+   This file are used to estimate the COVID-19 Japan based on deterministic SIR model.
+4. EstimationParameterSIR.m
+   This file are used to estimate the COVID-19 Japan based on both deterministic and stochastic SIR model (Using combination 2 type model).
+5. EstimationOverlapping.m
+   This file are used to estimate COVID-19 in Japan using overlapping data, or the other word is we estimate each 7 days (7 days is incubation time based on WHO policy).
+   The difference with the file on number 4 is this method not directly estimate the data from the beginning up to the end of data, but make some group containing every
+   7 days and then estimate it, so later we have so many parameter every 7 days.
+6. CheckOverlapping.m
+   This file are used to check certain 7 days by changing variable "q" on the code.
+7. SamplingReproNumber.m
+   This file are used to sampling Reproduction Number and save it into excel file.
+8. OutlierAnalysis.m
+   This file we will used after we have 30 excel file (minimum sampling) to remove outlier from the data.
+9. PlotReproNumber.m
+   This file are used to plot our final project (Plot Rt vs Infected).
+
+
+There are some problem in this code:
+1. When you run file EstimationOverlapping.m, the estimation result of recovered case is under the actual data. Maybe in the presentasion we just focus on infected case, if the problem are
+   not solved yet.
+2. We are using RMSE so there are no categorize or limit when the estimation is good or not. If we are using MAPE there is some limit to determine the quality of estimation, but the data
+   doesn't support this method because there are some 0 value on actual data .
+3. 
+
+
+
+Now our job is run the SamplingReproNumber.m file with "sampling = 4", and then send the excel file in LINE Group.
+
+Thank you guys, have a nice day
